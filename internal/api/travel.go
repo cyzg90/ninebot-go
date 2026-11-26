@@ -12,11 +12,12 @@ import (
 // client's traffic.
 func (c *Client) travelHeaders() map[string]string {
 	return map[string]string{
-		"Accept":       "application/json",
-		"access_token": c.Tokens.AccessToken,
-		"rn-ver":       rnVersion,
-		"rn-module":    "Track",
-		"rn-version":   "0",
+		"Accept":        "application/json",
+		"access_token":  c.Tokens.AccessToken,
+		"Business-Type": "2",
+		"rn-ver":        rnVersion,
+		"rn-module":     "Track",
+		"rn-version":    "0",
 	}
 }
 

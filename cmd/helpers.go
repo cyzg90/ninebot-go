@@ -72,10 +72,9 @@ func ensureBusinessUID(c *api.Client, d *config.Dir, tok *config.Tokens) error {
 	}
 	m, err := c.BusinessLogin()
 	if err != nil || !api.IsBizSuccess(m) {
-		// Non-fatal: fall back to passport UUID for uid headers.
-		// The vehicle endpoints may accept the passport JWT directly.
 		return nil
 	}
+
 	data, _ := m["data"].(map[string]any)
 	if data == nil {
 		data = m
@@ -89,6 +88,7 @@ func ensureBusinessUID(c *api.Client, d *config.Dir, tok *config.Tokens) error {
 	if v := strField(data, "access_token"); v != "" && tok.BizToken == "" {
 		tok.BizToken = v
 	}
+	c.Tokens = tok
 	return d.SaveTokens(tok)
 }
 
