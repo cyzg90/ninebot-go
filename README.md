@@ -8,6 +8,8 @@
 
 非官方逆向工程项目，与 Ninebot / Segway 官方无任何关联，仅供自有设备研究使用。
 
+本仓库基于 [likz0421/ninebot-go](https://github.com/likz0421/ninebot-go) 独立维护。
+
 ---
 
 ## 这是什么
